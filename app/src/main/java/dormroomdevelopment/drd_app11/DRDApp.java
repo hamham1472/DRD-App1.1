@@ -12,10 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.ViewSwitcher;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,10 @@ public class DRDApp extends AppCompatActivity
         setContentView(R.layout.activity_drdapp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setProgress(0);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +84,20 @@ public class DRDApp extends AppCompatActivity
     }
 
     public void takeADrink(View v){
+        switch (v.getId()) {
+            case R.id.button:
+                progressBar.setProgress(progressBar.getProgress()+100);
+                break;
+            case R.id.button2:
+                progressBar.setProgress(progressBar.getProgress()+100);
+                // do something else
+                break;
+            case R.id.button3:
+                progressBar.setProgress(progressBar.getProgress()+100);
+                // i'm lazy, do nothing
+                break;
+        }
+
 
     }
 
