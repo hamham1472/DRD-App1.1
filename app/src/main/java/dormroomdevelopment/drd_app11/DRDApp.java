@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ViewSwitcher;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,6 +75,12 @@ public class DRDApp extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void takeADrink(View v){
+
+    }
+
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -92,4 +99,5 @@ public class DRDApp extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
