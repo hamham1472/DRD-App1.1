@@ -117,9 +117,14 @@ public class Profile extends Activity{
         }
         String message;
         if(progressBar.getProgress()<500){
-            message = "you good";
-        }else{
-            message = "you're drunk";
+            message = "Good to keep going";
+        } else if (progressBar.getProgress()<700){
+            message = "Getting close to legal limit";
+        } else if (progressBar.getProgress()<900){
+            message = "About legal limit, consider stopping";
+        }
+        else{
+            message = "You are probably drunk";
         }
         Toast myToast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
         myToast.show();
