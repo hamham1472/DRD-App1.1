@@ -81,7 +81,7 @@ public class DRDApp extends AppCompatActivity
             profile.setWeight(Integer.parseInt(editText.getText().toString()));
 
             // Handle the camera action
-            Intent i= new Intent(DRDApp.this,Profile.class);
+            Intent i= new Intent(DRDApp.this,drink_info.class);
             i.putExtra("gender", profile.getGender());
             i.putExtra("weight",profile.getWeight());
             startActivity(i);
