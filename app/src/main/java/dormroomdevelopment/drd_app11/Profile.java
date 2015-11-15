@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
@@ -27,6 +28,7 @@ public class Profile extends Activity{
     public void setGender(View v){
         EditText weightEdit = (EditText) findViewById(R.id.user_weight);
         this.gender = Integer.parseInt(weightEdit.getText().toString());
+
     }
 
     public void setWeight(View v){

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.EditText;
 
+
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Profile profile = new Profile();
@@ -76,14 +77,8 @@ public class DRDApp extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_drinks) {
-
-            EditText editText = (EditText) findViewById(R.id.user_weight);
-            profile.setWeight(Integer.parseInt(editText.getText().toString()));
-
             // Handle the camera action
             Intent i= new Intent(DRDApp.this,drink_info.class);
-            i.putExtra("gender", profile.getGender());
-            i.putExtra("weight",profile.getWeight());
             startActivity(i);
         } else if (id == R.id.nav_pong) {
             EditText editText = (EditText) findViewById(R.id.user_weight);
