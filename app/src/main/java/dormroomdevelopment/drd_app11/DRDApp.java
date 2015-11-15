@@ -81,7 +81,7 @@ public class DRDApp extends AppCompatActivity
         // convert weight from lbs to grams
         weight = weight * 453.592;
 
-        // Constant for Male/Female
+        // Constant for Male or Female
         double A = 0.68;
         if (gender == 1) {
             A = .55;
