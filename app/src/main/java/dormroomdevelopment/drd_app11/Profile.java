@@ -85,7 +85,7 @@ public class Profile extends Activity{
         double A = 0.0;
 
         if (gender == 0) {
-            //change back to .55
+
             A = .68;
         }
         else{
