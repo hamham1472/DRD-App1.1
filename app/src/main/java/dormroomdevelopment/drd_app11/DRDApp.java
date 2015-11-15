@@ -77,6 +77,25 @@ public class DRDApp extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public double amountToAdd(int gender, double weight) {
+        // convert weight from lbs to grams
+        weight = weight * 453.592;
+
+        // Constant for Male/Female
+        double A = 0.68;
+        if (gender == 1) {
+            A = .55;
+        }
+
+        // calc percent added to BAC
+        double gramsAlc = 14;
+        double bacPerDrink = gramsAlc / (weight * A) * 100;
+
+        // percent added changed to points (out of 1000 max = .1%;
+
+        return 10000 * bacPerDrink;
+    }
+
     public void takeADrink(View v){
         switch (v.getId()) {
             case R.id.button:
