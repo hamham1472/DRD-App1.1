@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.ViewSwitcher;
+import android.content.Intent;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,14 +33,7 @@ public class DRDApp extends AppCompatActivity
         progressBar.setProgress(0);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -111,10 +105,14 @@ public class DRDApp extends AppCompatActivity
 
         if (id == R.id.nav_drinks) {
             // Handle the camera action
+            Intent i= new Intent(DRDApp.this,Profile.class);
+            startActivity(i);
         } else if (id == R.id.nav_pong) {
-
+            Intent i= new Intent(DRDApp.this,Profile.class);
+            startActivity(i);
         } else if (id == R.id.nav_profile) {
-
+            Intent i= new Intent(DRDApp.this,Profile.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
