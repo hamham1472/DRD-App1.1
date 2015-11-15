@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.EditText;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -21,6 +22,9 @@ public class DRDApp extends AppCompatActivity
         setContentView(R.layout.activity_drdapp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        EditText editText = (EditText) findViewById(R.id.user_weight);
+        profile.setWeight(Integer.parseInt(editText.getText().toString()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -72,19 +76,33 @@ public class DRDApp extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_drinks) {
+
+            EditText editText = (EditText) findViewById(R.id.user_weight);
+            profile.setWeight(Integer.parseInt(editText.getText().toString()));
+
             // Handle the camera action
             Intent i= new Intent(DRDApp.this,Profile.class);
             i.putExtra("gender", profile.getGender());
             i.putExtra("weight",profile.getWeight());
             startActivity(i);
         } else if (id == R.id.nav_pong) {
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            startActivity(i);
-        } else if (id == R.id.nav_profile) {
+            EditText editText = (EditText) findViewById(R.id.user_weight);
+            profile.setWeight(Integer.parseInt(editText.getText().toString()));
+
+
             Intent i= new Intent(DRDApp.this,Profile.class);
             i.putExtra("gender", profile.getGender());
             i.putExtra("weight",profile.getWeight());
             startActivity(i);
+        } else if (id == R.id.nav_profile) {
+            EditText editText = (EditText) findViewById(R.id.user_weight);
+            profile.setWeight(Integer.parseInt(editText.getText().toString()));
+
+            Intent i= new Intent(DRDApp.this,Profile.class);
+            i.putExtra("gender", profile.getGender());
+            i.putExtra("weight",profile.getWeight());
+            startActivity(i);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
