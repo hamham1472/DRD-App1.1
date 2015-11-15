@@ -12,9 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 /**
@@ -26,10 +28,18 @@ public class Profile extends Activity{
     private ProgressBar progressBar;
 
     public void setGender(View v){
-        EditText weightEdit = (EditText) findViewById(R.id.user_weight);
-        this.gender = Integer.parseInt(weightEdit.getText().toString());
+        RadioGroup radioGroup=(RadioGroup) findViewById(R.id.RG1);
+                switch(radioGroup.getCheckedRadioButtonId()){
+                    case R.id.radioButton:
+                        gender=0;
+                        break;
+                    case R.id.radioButton2:
+                        gender=1;
+                        break;
+            }
+        }
 
-    }
+
 
     public void setWeight(View v){
         EditText weightEdit = (EditText) findViewById(R.id.user_weight);
@@ -72,9 +82,14 @@ public class Profile extends Activity{
         weight = weight * 453.592;
 
         // Constant for Male or Female
-        double A = 0.68;
-        if (gender == 1) {
-            A = .55;
+        double A = 0.0;
+
+        if (gender == 0) {
+            //change back to .55
+            A = .68;
+        }
+        else{
+            A=.55;
         }
 
         // calc percent added to BAC
@@ -93,22 +108,18 @@ public class Profile extends Activity{
                 break;
             case R.id.button2:
                 progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(this.getGender(), this.getWeight()));
+
                 break;
             case R.id.button3:
                 progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(this.getGender(), this.getWeight()));
+
                 break;
         }
         String message;
-
         if(progressBar.getProgress()<500){
-            message = "Good to keep going";
-        } else if (progressBar.getProgress()<700){
-            message = "Getting close to legal limit";
-        } else if (progressBar.getProgress()<900){
-            message = "About legal limit, consider stopping";
-        }
-        else{
-            message = "You are probably drunk";
+            message = "you good";
+        }else{
+            message = "you're drunk";
         }
         Toast myToast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
         myToast.show();

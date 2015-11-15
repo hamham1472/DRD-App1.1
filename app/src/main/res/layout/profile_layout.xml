@@ -29,7 +29,7 @@
         android:contentDescription="Progress Bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:maxHeight="100dp"
         android:maxWidth="100dp"

@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 
 public class DRDApp extends AppCompatActivity
@@ -83,26 +85,32 @@ public class DRDApp extends AppCompatActivity
         } else if (id == R.id.nav_pong) {
             EditText editText = (EditText) findViewById(R.id.user_weight);
             profile.setWeight(Integer.parseInt(editText.getText().toString()));
+                        Intent i = new Intent(DRDApp.this, Profile.class);
+                        i.putExtra("gender", profile.getGender());
+                        i.putExtra("weight", profile.getWeight());
+                        startActivity(i);
+                }else if (id == R.id.nav_profile) {
+                    EditText editText = (EditText) findViewById(R.id.user_weight);
+                    profile.setWeight(Integer.parseInt(editText.getText().toString()));
+            RadioGroup radioGroup=(RadioGroup) findViewById(R.id.RG1);
+                    switch (radioGroup.getCheckedRadioButtonId()) {
+                        case R.id.radioButton:
+                            profile.setGender(0);
+                            break;
+                        case R.id.radioButton2:
+                            profile.setGender(1);
+                            break;
+                    }
+                    Intent i = new Intent(DRDApp.this, Profile.class);
+                    i.putExtra("gender", profile.getGender());
+                    i.putExtra("weight", profile.getWeight());
+                    startActivity(i);
 
+                }
 
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            i.putExtra("gender", profile.getGender());
-            i.putExtra("weight",profile.getWeight());
-            startActivity(i);
-        } else if (id == R.id.nav_profile) {
-            EditText editText = (EditText) findViewById(R.id.user_weight);
-            profile.setWeight(Integer.parseInt(editText.getText().toString()));
-
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            i.putExtra("gender", profile.getGender());
-            i.putExtra("weight",profile.getWeight());
-            startActivity(i);
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
 
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-}
