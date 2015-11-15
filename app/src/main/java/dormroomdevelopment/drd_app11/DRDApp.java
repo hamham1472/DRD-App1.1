@@ -1,9 +1,6 @@
 package dormroomdevelopment.drd_app11;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,31 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-import android.widget.ViewSwitcher;
 import android.content.Intent;
-
-import java.util.Map;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Profile profile = new Profile();
 
-    private ProgressBar progressBar;
-    private Map map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drdapp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setProgress(0);
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,52 +64,6 @@ public class DRDApp extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public double amountToAdd(int gender, double weight) {
-        // convert weight from lbs to grams
-        weight = weight * 453.592;
-
-        // Constant for Male or Female
-        double A = 0.68;
-        if (gender == 1) {
-            A = .55;
-        }
-
-        // calc percent added to BAC
-        double gramsAlc = 14;
-        double bacPerDrink = gramsAlc / (weight * A) * 100;
-
-        // percent added changed to points (out of 1000 max = .1%;
-
-        return 10000 * bacPerDrink;
-    }
-
-    public void takeADrink(View v){
-        switch (v.getId()) {
-            case R.id.button:
-                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
-                break;
-            case R.id.button2:
-                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
-
-                break;
-            case R.id.button3:
-                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
-
-                break;
-        }
-        String message;
-        if(progressBar.getProgress()<500){
-            message = "you good";
-        }else{
-            message = "you're drunk";
-        }
-        Toast myToast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
-        myToast.show();
-
-
-    }
-
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -136,12 +74,16 @@ public class DRDApp extends AppCompatActivity
         if (id == R.id.nav_drinks) {
             // Handle the camera action
             Intent i= new Intent(DRDApp.this,Profile.class);
+            i.putExtra("gender", profile.getGender());
+            i.putExtra("weight",profile.getWeight());
             startActivity(i);
         } else if (id == R.id.nav_pong) {
             Intent i= new Intent(DRDApp.this,Profile.class);
             startActivity(i);
         } else if (id == R.id.nav_profile) {
             Intent i= new Intent(DRDApp.this,Profile.class);
+            i.putExtra("gender", profile.getGender());
+            i.putExtra("weight",profile.getWeight());
             startActivity(i);
         }
 
