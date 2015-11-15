@@ -67,6 +67,7 @@
         android:onClick="takeADrink"
         android:background="@drawable/red_button"
         style="@style/button_text"/>
+    //check this out
 
     <Button
         android:layout_width="wrap_content"
