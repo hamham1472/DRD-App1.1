@@ -1,9 +1,7 @@
 package dormroomdevelopment.drd_app11;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,20 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.ViewSwitcher;
-import android.content.Intent;
 
-public class DRDApp extends AppCompatActivity
+public class ProfilePage extends DRDApp
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar progressBar;
+    private android.app.FragmentManager fm = getFragmentManager();
+    private android.app.FragmentTransaction transaction = fm.beginTransaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drdapp);
+        setContentView(R.layout.profile_drdapp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -102,17 +100,15 @@ public class DRDApp extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Intent intent = new Intent();
         if (id == R.id.nav_drinks) {
             // Handle the camera action
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            startActivity(i);
+
         } else if (id == R.id.nav_pong) {
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            startActivity(i);
+
         } else if (id == R.id.nav_profile) {
-            Intent i= new Intent(DRDApp.this,Profile.class);
-            startActivity(i);
+            Intent j = new Intent(ProfilePage.this, ProfilePage.class);
+            startActivity(j);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
