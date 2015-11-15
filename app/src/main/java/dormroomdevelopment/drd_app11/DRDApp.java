@@ -14,14 +14,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 import android.content.Intent;
+
+import java.util.Map;
 
 public class DRDApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar progressBar;
-
+    private Map map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,17 +102,25 @@ public class DRDApp extends AppCompatActivity
     public void takeADrink(View v){
         switch (v.getId()) {
             case R.id.button:
-                progressBar.setProgress(progressBar.getProgress()+100);
+                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
                 break;
             case R.id.button2:
-                progressBar.setProgress(progressBar.getProgress()+100);
-                // do something else
+                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
+
                 break;
             case R.id.button3:
-                progressBar.setProgress(progressBar.getProgress()+100);
-                // i'm lazy, do nothing
+                progressBar.setProgress(progressBar.getProgress()+(int)amountToAdd(0,173.0));
+
                 break;
         }
+        String message;
+        if(progressBar.getProgress()<500){
+            message = "you good";
+        }else{
+            message = "you're drunk";
+        }
+        Toast myToast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
+        myToast.show();
 
 
     }
