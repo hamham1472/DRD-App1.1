@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content" android:layout_height="wrap_content"
     >
 
 
-    <TextView android:text="Welcome To Profile" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView android:text="Welcome To Profile" android:layout_width="378dp"
+        android:layout_height="93dp"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:layout_row="0"
+        android:layout_column="0" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +19,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Age:"
         android:id="@+id/textView3"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_row="1"
+        android:layout_column="0" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +31,17 @@
         android:id="@+id/textView4"
         android:editable="true"
         android:layout_gravity="center_vertical"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_row="1"
+        android:layout_column="1" />
+
+    <EditText
+        android:id="@+id/user_age"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_row="2"
+        android:layout_column="0" />
 
 
-</LinearLayout>
+</GridLayout>
